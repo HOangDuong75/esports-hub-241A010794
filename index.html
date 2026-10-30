@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Esports Hub - Khám Phá Thế Giới Thể Thao Điện Tử Đỉnh Cao</title>
+  <meta name="description" content="Website giới thiệu các tựa game Esports phổ biến hàng đầu: Liên Quân Mobile, Liên Minh Huyền Thoại, Valorant, PUBG Mobile, và ZingSpeed Mobile. Đồ án lập trình web Front-end bởi Lê Minh Tài.">
+  <meta name="keywords" content="Esports, Game, Liên Quân Mobile, LMHT, Valorant, PUBG Mobile, ZingSpeed Mobile, Web Development">
+  <meta name="author" content="Lê Minh Tài">
+
+  <!-- Favicon SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230ea5e9'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==================== HEADER (STICKY NAVIGATION) ==================== -->
+  <header class="header" id="main-header">
+    <div class="container header__container">
+      
+      <!-- Logo: Esports Hub (Màu xanh da trời) -->
+      <a href="#home" class="logo" id="header-logo" title="Esports Hub - Trang chủ">
+        <div class="logo__icon-wrap">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <span>Esports Hub</span>
+        <span class="logo__badge">Pro</span>
+      </a>
+
+      <!-- Menu Điều Hướng: Trang chủ, Danh sách Game, Hướng dẫn, Cài đặt -->
+      <nav class="nav__menu" id="nav-menu" aria-label="Menu chính">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="#home" class="nav__link active" id="nav-home">Trang chủ</a>
+          </li>
+          <li class="nav__item">
+            <a href="#games-section" class="nav__link" id="nav-games">Danh sách Game</a>
+          </li>
+          <li class="nav__item">
+            <a href="#guides-section" class="nav__link" id="nav-guides">Hướng dẫn</a>
+          </li>
+          <li class="nav__item">
+            <a href="#settings-section" class="nav__link" id="nav-settings">Cài đặt</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Header Actions: Favorites Counter, Google Auth & Mobile Menu Toggle -->
+      <div class="header__actions">
+        <button class="btn-favorites-counter" id="header-favorites-btn" title="Xem danh sách game đã lưu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span>Yêu thích</span>
+          <span class="favorites-count-badge" id="favorites-badge">0</span>
+        </button>
+
+        <!-- Khối Tài Khoản Google / Đăng Nhập & Tạo Tài Khoản -->
+        <div class="header-auth" id="header-auth-container">
+          <!-- Trạng thái chưa đăng nhập -->
+          <button class="btn-google-auth" id="btn-open-auth" title="Đăng nhập hoặc Tạo tài khoản với Google">
+            <svg class="google-svg-icon" width="18" height="18" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            </svg>
+            <span class="auth-btn-label">Tài khoản Google</span>
+          </button>
+
+          <!-- Trạng thái đã đăng nhập (User Profile Menu Dropdown) -->
+          <div class="user-logged-box" id="user-logged-box" style="display: none;">
+            <button class="user-logged-btn" id="user-profile-toggle" title="Xem thông tin tài khoản">
+              <img src="https://api.dicebear.com/7.x/bottts/svg?seed=Tai" alt="User Avatar" class="user-logged-avatar" id="header-user-avatar">
+              <span class="user-logged-name" id="header-user-name">Lê Minh Tài</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            
+            <div class="user-dropdown-card" id="user-dropdown-card">
+              <div class="user-dropdown-header">
+                <img src="https://api.dicebear.com/7.x/bottts/svg?seed=Tai" alt="User Avatar" class="user-dropdown-avatar" id="dropdown-user-avatar">
+                <div class="user-dropdown-info">
+                  <h4 id="dropdown-user-name">Lê Minh Tài</h4>
+                  <p id="dropdown-user-email">leminhtai@gmail.com</p>
+                  <span class="google-badge-pill">
+                    <svg width="12" height="12" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+                    Đã liên kết Google
+                  </span>
+                </div>
+              </div>
+              <div class="user-dropdown-actions">
+                <a href="#games-section" class="user-dropdown-link" onclick="document.getElementById('user-dropdown-card').classList.remove('open');">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                  <span>Bộ sưu tập game đã lưu</span>
+                </a>
+                <a href="#settings-section" class="user-dropdown-link" onclick="document.getElementById('user-dropdown-card').classList.remove('open');">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                  <span>Cài đặt hệ thống</span>
+                </a>
+                <button class="user-dropdown-link btn-logout-action" id="btn-logout">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                  <span>Đăng xuất tài khoản</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nút bật menu trên Mobile -->
+        <button class="nav__toggle" id="nav-toggle" aria-label="Mở danh mục điều hướng">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero" id="home">
+      <div class="container hero__container">
+        
+        <!-- Nội dung bên trái -->
+        <div class="hero__content">
+          <div class="hero__pill">
+            <span class="hero__pill-dot"></span>
+            <span>Cổng Thông Tin Thể Thao Điện Tử Đỉnh Cao 2026</span>
+          </div>
+
+          <!-- Tiêu đề chính cỡ lớn -->
+          <h1 class="hero__title">
+            Khám Phá Thế Giới <br>
+            <span class="hero__title-highlight">Thể Thao Điện Tử</span>
+          </h1>
+
+          <!-- Tiêu đề phụ -->
+          <p class="hero__subtitle">
+            Nơi tổng hợp thông tin, cách chơi và hướng dẫn về các tựa game đỉnh cao nhất. Tận hưởng không khí tranh tài nảy lửa cùng các giải đấu Esports hàng đầu thế giới.
+          </p>
+
+          <!-- Nút Call-to-action (CTA): "Khám phá ngay" -->
+          <div class="hero__cta-group">
+            <button class="btn-cta" id="cta-explore-btn" title="Cuộn xuống danh sách game">
+              <span>Khám phá ngay</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+
+            <button class="btn-cta-secondary" id="cta-guides-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="10 8 16 12 10 16 10 8"></polygon>
+              </svg>
+              <span>Xem cẩm nang</span>
+            </button>
+          </div>
+
+          <!-- Thống kê nhanh (Stats) -->
+          <div class="hero__stats">
+            <div class="stat-item">
+              <span class="stat-number">05</span>
+              <span class="stat-label">Siêu phẩm Esports</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">2 Tỷ</span>
+              <span class="stat-label">Tổng tuyển thủ tranh tài của 5 game</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">24/7</span>
+              <span class="stat-label">Cập nhật Meta game</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hình ảnh minh họa Hero bên phải -->
+        <div class="hero__visual">
+          <div class="hero__image-wrapper">
+            <img src="assets/images/hero-banner.jpg" alt="Đấu trường Esports đỉnh cao rực rỡ ánh đèn xanh neon" width="600" height="338" loading="eager">
+          </div>
+
+          <!-- Floating Badges trang trí -->
+          <div class="floating-badge floating-badge--top">
+            <div class="floating-badge__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                <path d="M4 22h16"></path>
+                <path d="M10 14.66V17c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-2.34"></path>
+                <path d="M18 14.66V17c0 .55-.45 1-1 1h-2c-.55 0-1-.45-1-1v-2.34"></path>
+                <path d="M6 2v7a6 6 0 0 0 12 0V2H6z"></path>
+              </svg>
+            </div>
+            <div>
+              <p style="font-size:0.75rem; color:#64748b; margin:0;">Giải Đấu</p>
+              <p style="margin:0; font-size:0.88rem; font-weight:700;">Chung Kết Thế Giới</p>
+            </div>
+          </div>
+
+          <div class="floating-badge floating-badge--bottom">
+            <div class="floating-badge__icon" style="background:#e0f2fe; color:#0284c7;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="6" y1="12" x2="10" y2="12"></line>
+                <line x1="8" y1="10" x2="8" y2="14"></line>
+                <line x1="15" y1="13" x2="15.01" y2="13"></line>
+                <line x1="18" y1="11" x2="18.01" y2="11"></line>
+                <rect x="2" y="6" width="20" height="12" rx="2"></rect>
+              </svg>
+            </div>
+            <div>
+              <p style="font-size:0.75rem; color:#64748b; margin:0;">Thể Loại Game</p>
+              <p style="margin:0; font-size:0.88rem; font-weight:700;">Game Online</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== GAMES SECTION (PHẦN TRỌNG TÂM) ==================== -->
+    <section class="games-section" id="games-section">
+      <div class="container">
+        
+        <!-- Tiêu đề Section -->
+        <div class="section-header">
+          <span class="section-subtitle-tag">ĐẤU TRƯỜNG HUYỀN THOẠI</span>
+          <h2 class="section-title">Danh Sách Tựa Game Esports Nổi Bật</h2>
+          <p class="section-desc">
+            Khám phá 5 siêu phẩm thể thao điện tử được yêu thích nhất hiện nay với đa dạng thể loại từ MOBA chiến thuật, FPS bắn súng đỉnh cao đến đua xe tốc độ.
+          </p>
+        </div>
+
+        <!-- Bộ Lọc (Filter) & Ô Tìm Kiếm (Search) -->
+        <div class="games-controls">
+          
+          <!-- Thanh tìm kiếm nhanh -->
+          <div class="games-search-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="game-search-input" placeholder="Tìm kiếm tựa game theo tên, thể loại..." aria-label="Tìm kiếm game">
+          </div>
+
+          <!-- Các nút phân loại thể loại -->
+          <div class="filter-tabs" role="tablist">
+            <button class="filter-btn active" data-filter="all">
+              <span>Tất cả</span>
+              <span class="filter-badge">5</span>
+            </button>
+            <button class="filter-btn" data-filter="moba">
+              <span>MOBA</span>
+              <span class="filter-badge">2</span>
+            </button>
+            <button class="filter-btn" data-filter="fps">
+              <span>FPS & Sinh tồn</span>
+              <span class="filter-badge">2</span>
+            </button>
+            <button class="filter-btn" data-filter="racing">
+              <span>Đua xe (Racing)</span>
+              <span class="filter-badge">1</span>
+            </button>
+            <button class="filter-btn" data-filter="favorites">
+              <span>⭐ Đã yêu thích</span>
+              <span class="filter-badge" id="filter-favorites-count">0</span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- GRID CHỨA 5 THẺ GAME (CARDS) -->
+        <div class="games-grid" id="games-grid">
+
+          <!-- THẺ 1: LIÊN QUÂN MOBILE -->
+          <article class="game-card" data-id="lien-quan" data-category="moba" data-genre="MOBA (Di động)">
+            <div class="game-card__media">
+              <span class="game-card__genre-badge">MOBA</span>
+              <!-- Nút Lưu yêu thích (LocalStorage) -->
+              <button class="game-card__favorite-btn" aria-label="Thêm vào yêu thích" title="Lưu vào danh sách yêu thích">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+              <!-- Hình ảnh Liên Quân Mobile -->
+              <img src="assets/images/lien-quan.jpg" alt="Liên Quân Mobile - 5v5 Arena of Valor" class="game-card__img" width="400" height="225" loading="lazy">
+            </div>
+
+            <div class="game-card__body">
+              <h3 class="game-card__title">Liên Quân Mobile</h3>
+              <div class="game-card__genre-sub">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+                <span>Thể loại: MOBA (Di động)</span>
+              </div>
+              <p class="game-card__desc">
+                Tựa game MOBA di động quốc dân số 1 Việt Nam với lối chơi chiến thuật 5v5 nghẹt thở, nhịp độ nhanh và hệ thống tướng đa dạng, nổi bật với các giải đấu Đấu Trường Danh Vọng đỉnh cao.
+              </p>
+
+              <div class="game-card__specs">
+                <span class="game-card__spec-item">📥 100tr+ lượt tải</span>
+                <span>•</span>
+                <span class="game-card__spec-item">📱 Android / iOS</span>
+                <span>•</span>
+                <span class="game-card__spec-item">🏆 SGP, V Gaming</span>
+              </div>
+
+              <!-- Nút Tìm hiểu thêm (Viền xanh da trời, chữ xanh, hover chuyển nền xanh) -->
+              <button class="btn-learn-more" id="btn-more-lien-quan">
+                <span>Tìm hiểu thêm</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- THẺ 2: LIÊN MINH HUYỀN THOẠI -->
+          <article class="game-card" data-id="lol" data-category="moba" data-genre="MOBA (PC)">
+            <div class="game-card__media">
+              <span class="game-card__genre-badge">MOBA</span>
+              <button class="game-card__favorite-btn" aria-label="Thêm vào yêu thích" title="Lưu vào danh sách yêu thích">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+              <img src="assets/images/lol.jpg" alt="Liên Minh Huyền Thoại - League of Legends" class="game-card__img" width="400" height="225" loading="lazy">
+            </div>
+
+            <div class="game-card__body">
+              <h3 class="game-card__title">Liên Minh Huyền Thoại</h3>
+              <div class="game-card__genre-sub">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+                <span>Thể loại: MOBA (PC)</span>
+              </div>
+              <p class="game-card__desc">
+                Huyền thoại Thể thao điện tử toàn cầu của Riot Games với bản đồ Summoner's Rift 5v5 kinh điển, chiều sâu chiến thuật và giải đấu Chung Kết Thế Giới (Worlds) danh giá bậc nhất.
+              </p>
+
+              <div class="game-card__specs">
+                <span class="game-card__spec-item">📥 131tr+ người chơi</span>
+                <span>•</span>
+                <span class="game-card__spec-item">💻 PC Windows / Mac</span>
+                <span>•</span>
+                <span class="game-card__spec-item">🏆 CKTG, MSI, VCS</span>
+              </div>
+
+              <button class="btn-learn-more" id="btn-more-lol">
+                <span>Tìm hiểu thêm</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- THẺ 3: VALORANT -->
+          <article class="game-card" data-id="valorant" data-category="fps" data-genre="FPS (Bắn súng chiến thuật)">
+            <div class="game-card__media">
+              <span class="game-card__genre-badge">FPS</span>
+              <button class="game-card__favorite-btn" aria-label="Thêm vào yêu thích" title="Lưu vào danh sách yêu thích">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+              <img src="assets/images/valorant.jpg" alt="Valorant - Bắn súng chiến thuật 5v5" class="game-card__img" width="400" height="225" loading="lazy">
+            </div>
+
+            <div class="game-card__body">
+              <h3 class="game-card__title">Valorant</h3>
+              <div class="game-card__genre-sub">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <span>Thể loại: FPS (Bắn súng chiến thuật)</span>
+              </div>
+              <p class="game-card__desc">
+                Siêu phẩm FPS 5v5 kết hợp giữa đấu súng chuẩn xác từng mili-giây và bộ kỹ năng đặc vụ siêu nhiên độc đáo, đòi hỏi tư duy phối hợp đồng đội ở đẳng cấp cao.
+              </p>
+
+              <div class="game-card__specs">
+                <span class="game-card__spec-item">📥 35tr+ người chơi</span>
+                <span>•</span>
+                <span class="game-card__spec-item">💻 PC Windows</span>
+                <span>•</span>
+                <span class="game-card__spec-item">🏆 VCT, Masters</span>
+              </div>
+
+              <button class="btn-learn-more" id="btn-more-valorant">
+                <span>Tìm hiểu thêm</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- THẺ 4: PUBG MOBILE -->
+          <article class="game-card" data-id="pubg-mobile" data-category="fps" data-genre="Bắn súng Sinh tồn (Battle Royale)">
+            <div class="game-card__media">
+              <span class="game-card__genre-badge">SINH TỒN</span>
+              <button class="game-card__favorite-btn" aria-label="Thêm vào yêu thích" title="Lưu vào danh sách yêu thích">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+              <img src="assets/images/pubg-mobile.webp" alt="PUBG Mobile - VNGGames" class="game-card__img" width="400" height="225" loading="lazy">
+            </div>
+
+            <div class="game-card__body">
+              <h3 class="game-card__title">PUBG Mobile</h3>
+              <div class="game-card__genre-sub">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="22" y1="12" x2="18" y2="12"></line>
+                  <line x1="6" y1="12" x2="2" y2="12"></line>
+                  <line x1="12" y1="6" x2="12" y2="2"></line>
+                  <line x1="12" y1="22" x2="12" y2="18"></line>
+                </svg>
+                <span>Thể loại: Bắn súng Sinh tồn (Battle Royale)</span>
+              </div>
+              <p class="game-card__desc">
+                Đấu trường sinh tồn 100 người khốc liệt hàng đầu thế giới, thử thách kỹ năng nhảy dù, nhặt trang bị, bắn súng và tư duy chiến thuật bo để giành lấy "Bữa cơm gà".
+              </p>
+
+              <div class="game-card__specs">
+                <span class="game-card__spec-item">📥 1.2 Tỷ+ lượt tải</span>
+                <span>•</span>
+                <span class="game-card__spec-item">📱 Android / iOS</span>
+                <span>•</span>
+                <span class="game-card__spec-item">🏆 PMGC, PMSL SEA</span>
+              </div>
+
+              <button class="btn-learn-more" id="btn-more-pubg-mobile">
+                <span>Tìm hiểu thêm</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- THẺ 5: ZINGSPEED MOBILE -->
+          <article class="game-card" data-id="zingspeed" data-category="racing" data-genre="Racing (Đua xe 3D tốc độ cao)">
+            <div class="game-card__media">
+              <span class="game-card__genre-badge">RACING</span>
+              <button class="game-card__favorite-btn" aria-label="Thêm vào yêu thích" title="Lưu vào danh sách yêu thích">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+              <img src="assets/images/zingspeed.jpg" alt="ZingSpeed Mobile - VNGGames" class="game-card__img" width="400" height="225" loading="lazy">
+            </div>
+
+            <div class="game-card__body">
+              <h3 class="game-card__title">ZingSpeed Mobile</h3>
+              <div class="game-card__genre-sub">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+                <span>Thể loại: Racing (Đua xe 3D tốc độ cao)</span>
+              </div>
+              <p class="game-card__desc">
+                Đấu trường đua xe 3D đỉnh cao nơi kỹ năng drift bẻ cua, căn thời điểm phun nitro nitro-boost và những màn cạnh tranh nghẹt thở trên các cung đường vi diệu quyết định ngôi vương tốc độ.
+              </p>
+
+              <div class="game-card__specs">
+                <span class="game-card__spec-item">📥 10tr+ lượt tải</span>
+                <span>•</span>
+                <span class="game-card__spec-item">📱 Android / iOS</span>
+                <span>•</span>
+                <span class="game-card__spec-item">🏆 Asian Cup ZingSpeed</span>
+              </div>
+
+              <button class="btn-learn-more" id="btn-more-zingspeed">
+                <span>Tìm hiểu thêm</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- Trạng thái không có kết quả tìm kiếm -->
+          <div class="games-empty" id="games-empty">
+            <div class="games-empty__icon">🔍</div>
+            <div class="games-empty__text">Không tìm thấy tựa game nào phù hợp</div>
+            <div class="games-empty__sub">Hãy thử nhập từ khóa khác hoặc chuyển danh mục "Tất cả".</div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== GUIDES SECTION (HƯỚNG DẪN) ==================== -->
+    <section class="guides-section" id="guides-section">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-subtitle-tag">CẨM NANG THỂ THAO ĐIỆN TỬ</span>
+          <h2 class="section-title">Bí Quyết Vươn Tới Đỉnh Cao</h2>
+          <p class="section-desc">
+            Trang bị kiến thức nền tảng và tư duy chiến thuật sắc bén giúp bạn thăng hạng thần tốc trong mọi tựa game.
+          </p>
+        </div>
+
+        <div class="guides-grid">
+          
+          <article class="guide-box">
+            <div class="guide-box__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+            <h3 class="guide-box__title">1. Kỹ Năng Tư Duy Bản Đồ (Macro)</h3>
+            <p class="guide-box__desc">
+              Tập thói quen quan sát minimap liên tục mỗi vài giây, đọc thế lính, tính toán thời gian hồi phép bổ trợ và dự đoán hướng di chuyển của địch trước khi giao tranh nổ ra.
+            </p>
+          </article>
+
+          <article class="guide-box">
+            <div class="guide-box__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h3 class="guide-box__title">2. Giao Tiếp & Call Team Hiệu Quả</h3>
+            <p class="guide-box__desc">
+              Esports là môn thể thao đồng đội. Cung cấp thông tin ngắn gọn, dứt khoát: máu đối thủ, vị trí xuất hiện và mục tiêu ăn tiếp theo thay vì phàn nàn hay tranh cãi.
+            </p>
+          </article>
+
+          <article class="guide-box">
+            <div class="guide-box__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <h3 class="guide-box__title">3. Tối Ưu Hóa Thiết Lập & FPS</h3>
+            <p class="guide-box__desc">
+              Cài đặt mức DPI chuột phù hợp với tay, bật tần số quét màn hình cao (144Hz+) và tắt các ứng dụng chạy ngầm để đảm bảo độ trễ phản hồi thấp nhất có thể.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SETTINGS & THÔNG TIN ==================== -->
+    <section class="settings-section" id="settings-section">
+      <div class="container">
+        
+        <div class="settings-card">
+          
+          <!-- Bảng quản lý cài đặt -->
+          <div class="settings-panel">
+            <div class="settings-panel__header">
+              <h3>Cài Đặt & Dữ Liệu Trang Web</h3>
+              <p>Quản lý dữ liệu lưu trữ trình duyệt (HTML5 LocalStorage).</p>
+            </div>
+
+            <div class="setting-row">
+              <div class="setting-info">
+                <span>Dọn dẹp danh sách yêu thích</span>
+                <small>Xóa toàn bộ các game đã lưu khỏi LocalStorage</small>
+              </div>
+              <button class="btn-reset-favorites" id="btn-clear-favorites">Xóa danh sách</button>
+            </div>
+
+            <div class="setting-row">
+              <div class="setting-info">
+                <span>Hiệu ứng cuộn mượt (Smooth Scroll)</span>
+                <small>Tối ưu trải nghiệm chuyển cảnh</small>
+              </div>
+              <label class="switch">
+                <input type="checkbox" checked disabled>
+                <span class="slider"></span>
+              </label>
+            </div>
+
+            <div class="setting-row">
+              <div class="setting-info">
+                <span>Tone màu chủ đạo</span>
+                <small>Nền Trắng & Điểm nhấn Xanh da trời (Sky Blue)</small>
+              </div>
+              <span style="font-weight:700; color:var(--sky-600); font-size:0.85rem;">Mặc định</span>
+            </div>
+          </div>
+
+          <!-- Thông tin Sinh viên & Đề tài -->
+          <div class="author-badge-card">
+            <span class="author-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+              Đồ án môn Lập trình Web
+            </span>
+            <h4 class="author-name">Sinh viên: Lê Minh Tài</h4>
+            <div class="author-mssv">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                <line x1="7" y1="8" x2="17" y2="8"></line>
+                <line x1="7" y1="12" x2="13" y2="12"></line>
+                <line x1="7" y1="16" x2="11" y2="16"></line>
+              </svg>
+              <span>MSSV: <strong>241A010794</strong></span>
+            </div>
+            <p class="author-desc">
+              Trang web được thiết kế theo tiêu chuẩn HTML5 Semantic, CSS Grid, Flexbox và áp dụng tính năng lưu game yêu thích qua LocalStorage. Giao diện thân thiện và tương thích với mọi kích thước màn hình.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      
+      <!-- Phần trên của Footer -->
+      <div class="footer__top">
+        <div class="footer__brand">
+          <div class="logo">
+            <div class="logo__icon-wrap" style="width:36px; height:36px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+            </div>
+            <span style="font-size:1.35rem;">Esports Hub</span>
+          </div>
+          <p>Nền tảng chia sẻ và kết nối cộng đồng game thủ Thể thao điện tử.</p>
+        </div>
+
+        <!-- Biểu tượng mạng xã hội: Facebook Esports VHU -->
+        <div class="footer__socials">
+          <a href="https://www.facebook.com/groups/esportsvhu" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Facebook Esports VHU" title="Gia nhập Cộng đồng Esports VHU">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Phần dưới của Footer: Bản quyền theo yêu cầu -->
+      <div class="footer__bottom">
+        <p class="footer__copy">
+          © 2026 - Website giới thiệu game Esports. Thực hiện bởi Lê Minh Tài - MSSV: 241A010794.
+        </p>
+        <div class="footer__links">
+          <a href="#home">Trang chủ</a>
+          <a href="#games-section">Game Esports</a>
+          <a href="#guides-section">Cẩm nang</a>
+          <a href="#settings-section">Cài đặt</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==================== INTERACTIVE MODAL (TÌM HIỂU THÊM) ==================== -->
+  <div class="modal-overlay" id="game-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <img src="assets/images/lien-quan.jpg" alt="Game Preview" id="modal-img">
+        <button class="modal-close-btn" id="modal-close-btn" aria-label="Đóng cửa sổ">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <span class="modal-game-badge" id="modal-genre-badge">MOBA</span>
+        <h3 class="modal-game-title" id="modal-title">Tên Tựa Game</h3>
+        <p class="modal-game-desc" id="modal-desc">Mô tả chi tiết về tựa game.</p>
+
+        <div class="modal-info-grid">
+          <div class="modal-info-item">
+            <h5>Nhà phát hành</h5>
+            <p id="modal-publisher">Garena & TiMi Studio</p>
+          </div>
+          <div class="modal-info-item">
+            <h5>Nền tảng hỗ trợ</h5>
+            <p id="modal-platform">Android, iOS</p>
+          </div>
+          <div class="modal-info-item">
+            <h5>Lượt tải</h5>
+            <p id="modal-downloads">100tr+</p>
+          </div>
+          <div class="modal-info-item">
+            <h5>Đánh giá cộng đồng</h5>
+            <p id="modal-rating">4.8 / 5.0 ⭐</p>
+          </div>
+          <div class="modal-info-item">
+            <h5>Đội tuyển tiêu biểu</h5>
+            <p id="modal-teams">Saigon Phantom, V Gaming</p>
+          </div>
+          <div class="modal-info-item">
+            <h5>Giải đấu danh giá</h5>
+            <p id="modal-tournaments">AOG, AIC</p>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 24px;">
+          <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; color: var(--text-dark);">
+            💡 Mẹo thi đấu cho người mới:
+          </h4>
+          <ul id="modal-tips-list" style="padding-left: 4px;"></ul>
+        </div>
+
+        <div class="modal-actions">
+          <button class="btn-favorites-counter" id="modal-favorite-toggle" style="padding: 10px 20px;">
+            🤍 Thêm vào yêu thích
+          </button>
+          <a class="btn-cta" id="modal-download-btn" href="#" target="_blank" rel="noopener noreferrer" style="padding: 10px 24px; font-size: 0.95rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Tải ngay</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== GOOGLE AUTH & ACCOUNT MODAL ==================== -->
+  <div class="modal-overlay auth-modal-overlay" id="auth-modal" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
+    <div class="modal-content auth-modal-content">
+      
+      <div class="auth-modal-header">
+        <div class="auth-modal-header-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+          </svg>
+        </div>
+        <h3 class="auth-modal-title" id="auth-modal-title">Tài Khoản Esports Hub</h3>
+        <p class="auth-modal-subtitle">Đăng nhập hoặc tạo tài khoản để đồng bộ hóa danh sách game yêu thích</p>
+        <button class="modal-close-btn" id="auth-close-btn" aria-label="Đóng cửa sổ">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="auth-modal-body">
+        
+        <!-- Nút Liên Kết / Đăng Nhập Bằng Google Nổi Bật -->
+        <button class="btn-continue-google" id="btn-google-action">
+          <svg class="google-svg-icon" width="22" height="22" viewBox="0 0 24 24">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+          </svg>
+          <span>Tiếp tục với Google</span>
+        </button>
+
+        <div class="auth-divider">
+          <span>hoặc sử dụng tài khoản email</span>
+        </div>
+
+        <!-- Chuyển tab Đăng nhập / Tạo tài khoản -->
+        <div class="auth-tabs" role="tablist">
+          <button class="auth-tab-btn active" id="tab-btn-login" type="button">Đăng Nhập</button>
+          <button class="auth-tab-btn" id="tab-btn-register" type="button">Tạo Tài Khoản</button>
+        </div>
+
+        <!-- Form Đăng Nhập -->
+        <form class="auth-form" id="form-login">
+          <div class="auth-form-group">
+            <label for="login-email">Email hoặc Tên đăng nhập</label>
+            <div class="auth-input-wrapper">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <input type="text" id="login-email" placeholder="example@gmail.com" required autocomplete="username">
+            </div>
+          </div>
+
+          <div class="auth-form-group">
+            <label for="login-password">Mật khẩu</label>
+            <div class="auth-input-wrapper">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              <input type="password" id="login-password" placeholder="••••••••" required autocomplete="current-password">
+            </div>
+          </div>
+
+          <div class="auth-form-options">
+            <label class="remember-me-label">
+              <input type="checkbox" id="login-remember" checked>
+              <span>Ghi nhớ đăng nhập</span>
+            </label>
+            <a href="#" class="auth-forgot-link" onclick="alert('Vui lòng sử dụng tính năng Đăng nhập bằng Google để vào tài khoản nhanh nhất!'); return false;">Quên mật khẩu?</a>
+          </div>
+
+          <button type="submit" class="btn-auth-submit">Đăng Nhập Ngay</button>
+        </form>
+
+        <!-- Form Tạo Tài Khoản -->
+        <form class="auth-form" id="form-register" style="display: none;">
+          <div class="auth-form-group">
+            <label for="register-name">Họ và tên</label>
+            <div class="auth-input-wrapper">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              <input type="text" id="register-name" placeholder="Ví dụ: Lê Minh Tài" required autocomplete="name">
+            </div>
+          </div>
+
+          <div class="auth-form-group">
+            <label for="register-email">Địa chỉ Email</label>
+            <div class="auth-input-wrapper">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <input type="email" id="register-email" placeholder="example@gmail.com" required autocomplete="email">
+            </div>
+          </div>
+
+          <div class="auth-form-group">
+            <label for="register-password">Mật khẩu (tối thiểu 6 ký tự)</label>
+            <div class="auth-input-wrapper">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              <input type="password" id="register-password" placeholder="••••••••" required minlength="6" autocomplete="new-password">
+            </div>
+          </div>
+
+          <button type="submit" class="btn-auth-submit">Tạo Tài Khoản Mới</button>
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Main JavaScript File -->
+  <script src="js/main.js"></script>
+</body>
+</html>
